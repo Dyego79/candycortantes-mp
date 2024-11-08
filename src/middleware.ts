@@ -11,7 +11,7 @@ const apiAuthPrefix = "/api/auth";
 export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
-  const userRole = req.auth?.user.role; // Obteniendo el rol del usuario
+  const userRole = req.auth?.user?.role; // Acceder de forma segura al rol del usuario
 
   console.log({ isLoggedIn, path: nextUrl.pathname, userRole });
 
