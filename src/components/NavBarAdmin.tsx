@@ -1,25 +1,25 @@
 "use client";
 
-import { auth } from "../auth";
+/* import { auth } from "@/auth";
 import LogoutButton from "@/components/logout-button";
-import { Button } from "@/components/ui/button";
-import { Session } from "next-auth";
+import { Button } from "@/components/ui/button"; 
 import { useSession } from "next-auth/react";
-
 import Image from "next/image";
+import { useEffect, useState } from "react";*/
+import React from "react";
+/* import { Session } from "next-auth"; */
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-interface Props {
+/* interface Props {
   session?: Session | null;
-}
+} */
 
-export default function NamePage({ session }: Props) {
+export default function NamePage(/* { session }: Props */) {
   /* const { data: session } = useSession();
   const isAuthenticated = !!session?.user;
   const isAdmin = session?.user.role === "admin";
   const isUser = session?.user.role === "user";
-  console.log({ session }); */
+  console.log({ session });
 
   //onst [session, setSession2] = useState<Session | null>(null);
   const isAuthenticated = !!session?.user;
@@ -36,13 +36,6 @@ export default function NamePage({ session }: Props) {
   return (
     <header>
       <div className="container">
-        <Image
-          src={`${session?.user.image}`}
-          alt={"Logo Librería Gogo"}
-          width={80}
-          height={80}
-          style={{ borderRadius: "100%" }}
-        />
         <nav>
           <ul>
             <li>

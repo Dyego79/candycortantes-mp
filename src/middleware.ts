@@ -1,10 +1,10 @@
 import NextAuth from "next-auth";
 import { NextResponse } from "next/server";
-import authConfig from "./auth.config";
+import authConfig from "@/auth.config";
 
 const { auth } = NextAuth(authConfig);
 
-const publicRoutes = ["/", "/prices", "/product"];
+const publicRoutes = ["/", "/prices"];
 const authRoutes = ["/login", "/register", "/recuperar-pass", "/reset-pass"];
 const apiAuthPrefix = "/api/auth";
 
@@ -12,6 +12,8 @@ export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
   const userRole = req.auth?.user.role; // Obteniendo el rol del usuario
+
+  console.log({ isLoggedIn, path: nextUrl.pathname, userRole });
 
   // Permitir todas las rutas de API de autenticación
   if (nextUrl.pathname.startsWith(apiAuthPrefix)) {

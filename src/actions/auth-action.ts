@@ -1,27 +1,11 @@
 "use server";
 
-import { signIn } from "../auth";
+import { signIn } from "@/auth";
 import { db } from "@/lib/db";
 import { loginSchema, registerSchema } from "@/lib/zod";
-import argon2 from "argon2";
 import { AuthError } from "next-auth";
 import { z } from "zod";
-
-/* export const loginAction = async (values: z.infer<typeof loginSchema>) => {
-  try {
-    await signIn("credentials", {
-      email: values.email,
-      password: values.password,
-      redirect: false,
-    });
-    return { success: true };
-  } catch (error) {
-    if (error instanceof AuthError) {
-      return { error: error.cause?.err?.message };
-    }
-    return { error: "error 500" };
-  }
-}; */
+import bcrypt from "bcryptjs";
 
 export const loginAction = async (values: z.infer<typeof loginSchema>) => {
   try {
@@ -96,7 +80,7 @@ export const registerAction = async (
     }
 
     // hash de la contraseña
-    const passwordHash = await argon2.hash(data.password);
+    const passwordHash = await bcrypt.hash(data.password, 10);
 
     // crear el usuario
     await db.user.create({

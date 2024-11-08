@@ -1,6 +1,5 @@
-import { SessionProvider } from "next-auth/react";
-import NavBarAdmin from "../components/NavBarAdmin";
-import { auth } from "../auth";
+import React from "react";
+import { auth } from "@/auth";
 import Header from "../components/Header";
 import Slider from "@/components/ui/sliders/Slider";
 

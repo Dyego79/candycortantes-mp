@@ -4,10 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import Account from "./ui/account";
-import { IoCart, IoCartOutline } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-
-import { CartIcon } from "./ui/CartIcon";
 import { Badge } from "@nextui-org/react";
 import { Session } from "next-auth";
 
@@ -16,7 +13,7 @@ interface Props {
 }
 
 export default function Header({ session }: Props) {
-  const [isInvisible, setIsInvisible] = React.useState(false);
+  /* const [isInvisible, setIsInvisible] = React.useState(false); */
   return (
     <header className="bg-principal flex justify-center">
       <div className="container max-w-[1600px] flex items-center px-3 py-2">
@@ -65,7 +62,7 @@ export default function Header({ session }: Props) {
           </div>
           <Badge
             content={12}
-            isInvisible={isInvisible}
+            isInvisible={false}
             className="bg-white text-principal font-bold "
           >
             <HiOutlineShoppingBag size={32} className="text-white ml-3" />

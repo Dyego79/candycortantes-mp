@@ -1,3 +1,5 @@
+import React from "react";
+
 interface CartIconProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
   height?: number;

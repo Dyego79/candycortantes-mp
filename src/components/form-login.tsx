@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import { loginSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -73,7 +73,7 @@ const FormLogin = ({ isVerified, OAuthAccountNotLinked }: FormLoginProps) => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="ss">Email</FormLabel>
                 <FormControl>
                   <Input placeholder="email" type="email" {...field} />
                 </FormControl>
@@ -86,7 +86,7 @@ const FormLogin = ({ isVerified, OAuthAccountNotLinked }: FormLoginProps) => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="ss">Password</FormLabel>
                 <FormControl>
                   <Input placeholder="password" type="password" {...field} />
                 </FormControl>

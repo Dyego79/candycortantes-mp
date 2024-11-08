@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { registerSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";

@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import argon2 from "argon2";
+import bcrypt from "bcryptjs";
+
+// Función para hashear contraseñas usando Bcrypt
+export const hashPassword = async (password: string): Promise<string> => {
+  return bcrypt.hash(password, 10);
+};
 
 export async function POST(req: Request) {
   const { token, password } = await req.json();
@@ -17,8 +22,8 @@ export async function POST(req: Request) {
     );
   }
 
-  // Hashear la nueva contraseña
-  const hashedPassword = await argon2.hash(password);
+  // Hashear la nueva contraseña con Argon2 (importado dinámicamente)
+  const hashedPassword = await hashPassword(password);
 
   // Actualizar la contraseña del usuario
   await db.user.update({

@@ -1,11 +1,7 @@
+import React from "react";
 import type { Metadata } from "next";
-
 import "./globals.css";
-import NavBarAdmin from "../components/NavBarAdmin";
-import { auth } from "../auth";
-import { SessionProvider } from "next-auth/react";
-import Header from "../components/Header";
-import { nunito, mPlusRounded } from "@/utils/fonts";
+import { mPlusRounded } from "@/utils/fonts";
 
 export const metadata: Metadata = {
   title: "Candy Cortantes - Tienda",

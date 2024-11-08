@@ -1,16 +1,15 @@
 import { db } from "@/lib/db";
 import { loginSchema } from "@/lib/zod";
-import argon2 from "argon2";
+import bcrypt from "bcryptjs";
 import { nanoid } from "nanoid";
 import type { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { sendEmailVerification } from "@/lib/mail";
+import { sendEmailVerification } from "./lib/mail";
 
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 
 export default {
-  trustHost: true,
   providers: [
     Google,
     GitHub,
@@ -30,7 +29,7 @@ export default {
           throw new Error("No user found");
         }
 
-        const isValid = await argon2.verify(data.password, user.password);
+        const isValid = await bcrypt.compare(data.password, user.password);
 
         if (!isValid) {
           throw new Error("Incorrect password");
@@ -70,7 +69,7 @@ export default {
     }),
   ],
   callbacks: {
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       if (token?.role) {
         session.user.role = token.role; // Agregar el rol a la sesión
       }

@@ -1,10 +1,10 @@
-import { auth } from "../../../auth";
+import React from "react";
+import { auth } from "@/auth";
 import LogoutButton from "@/components/logout-button";
 
 const AdminPage = async () => {
   const session = await auth();
-
-  console.log("admin", session);
+  console.log(session);
 
   if (session?.user?.role !== "admin") {
     return <div>You are not admin</div>;

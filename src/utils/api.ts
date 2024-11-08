@@ -15,7 +15,7 @@ const api = {
   message: {
     async list(): Promise<Message[]> {
       // Leemos el archivo de la base de datos de los mensajes
-      const db = readFileSync("db/message.db");
+      const db = readFileSync("./src/db/message.db");
 
       // Devolvemos los datos como un array de objetos
       return JSON.parse(db.toString());

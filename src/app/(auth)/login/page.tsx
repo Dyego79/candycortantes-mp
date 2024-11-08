@@ -1,12 +1,14 @@
+"use client";
+import React from "react";
 import FormLogin from "@/components/form-login";
+import { useSearchParams } from "next/navigation";
 
-const LoginPage = ({
-  searchParams,
-}: {
-  searchParams: { verified: string; error: string };
-}) => {
-  const isVerified = searchParams.verified === "true";
-  const OAuthAccountNotLinked = searchParams.error === "OAuthAccountNotLinked";
+const LoginPage = () => {
+  const searchParams = useSearchParams();
+
+  const isVerified = searchParams.get("verified") === "true";
+  const OAuthAccountNotLinked =
+    searchParams.get("error") === "OAuthAccountNotLinked";
 
   return (
     <FormLogin
@@ -15,4 +17,5 @@ const LoginPage = ({
     />
   );
 };
+
 export default LoginPage;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -15,11 +15,6 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 
-const sliders = [
-  "https://placehold.co/500x400?text=Slide+1",
-  "https://placehold.co/500x400?text=Slide+2",
-  "https://placehold.co/500x400?text=Slide+3",
-];
 export default function App() {
   const progressCircle = useRef<any>(null);
   const progressContent = useRef<any>(null);
