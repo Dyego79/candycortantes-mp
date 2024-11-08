@@ -55,7 +55,7 @@ export default function Header({ session }: Props) {
         </nav>
         <div className="flex-1"></div>
         <div className="flex items-center gap-2">
-          <Account session={session} />
+          {/* <Account session={session} /> */}
           <div className="flex flex-col leading-4 text-white uppercase">
             <span>Ingresar</span>
             <span>Registro</span>
