@@ -9,12 +9,15 @@ import { useEffect, useState } from "react";*/
 import React from "react";
 /* import { Session } from "next-auth"; */
 import Link from "next/link";
-
+import { Session } from "next-auth";
+interface NavBarAdminProps {
+  session: Session | null;
+}
 /* interface Props {
   session?: Session | null;
 } */
 
-export default function NamePage(/* { session }: Props */) {
+export default function NamePage({ session }: NavBarAdminProps) {
   /* const { data: session } = useSession();
   const isAuthenticated = !!session?.user;
   const isAdmin = session?.user.role === "admin";
